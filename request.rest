@@ -1,0 +1,92 @@
+### post api
+
+### create post
+
+POST http://localhost:3000/post 
+Content-Type: application/json
+
+{
+"sender": "6666", 
+"message": "This is a new message"
+}
+
+###
+
+### get all posts
+
+GET http://localhost:3000/post/all
+
+###
+
+### get posts by id
+
+GET http://localhost:3000/post/674dc1ccf960fe218d4959ad
+
+###
+
+### get posts by sender
+
+GET http://localhost:3000/post?sender=6666
+
+###
+
+### update post
+
+PUT http://localhost:3000/post/674dc1ccf960fe218d4959ad 
+Content-Type: application/json
+
+{
+"message": "This age"
+}
+
+###
+
+### delete post
+
+DELETE http://localhost:3000/post/674dc1ddf960fe218d4959af
+
+###
+
+### comment api
+
+### create comment
+
+POST http://localhost:3000/comment 
+Content-Type: application/json
+
+{
+"post": "674dc1ddf960fe218d4959af", 
+"sender": "7439", 
+"message": "This is a comment 2"
+}
+
+###
+
+### get comment
+
+GET http://localhost:3000/comment/674dc213f960fe218d4959bf
+
+###
+
+### get comments by post
+
+GET http://localhost:3000/comment?post=674dc1ddf960fe218d4959af
+
+###
+
+### update comment
+
+PUT http://localhost:3000/comment/674dc210f960fe218d4959bc 
+Content-Type: application/json
+
+{
+"message": "This update"
+}
+
+###
+
+### delete comment
+
+DELETE http://localhost:3000/comment/674dc210f960fe218d4959bc
+
+###
