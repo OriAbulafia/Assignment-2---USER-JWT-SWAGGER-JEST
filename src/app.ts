@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import post_routes from "./routes/post_routes.js";
 import comment_routes from "./routes/comment_routes.js";
+import user_routes from "./routes/user_routes.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/post", post_routes);
 app.use("/comment", comment_routes);
+app.use("/user", user_routes);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

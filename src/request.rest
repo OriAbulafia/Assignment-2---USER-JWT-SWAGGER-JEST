@@ -1,3 +1,24 @@
+### userAPI
+
+### Create a user
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "username": "ABC",
+    "password": "yosef",
+    "email": "abuabu@gmail.abuabu"
+}
+
+### Get all users
+GET http://localhost:3000/user/all
+
+
+
+### Get user by username or by email
+GET http://localhost:3000/user?username=ABC
+
+
 ### post api
 
 ### create post
@@ -6,7 +27,7 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-"sender": "Sahar", 
+"user": "Sahar", 
 "message": "This is a new post"
 }
 

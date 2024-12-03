@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 const postSchema = new mongoose.Schema({
-    sender: {
-        type: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
         required: true,
     },
     message: {
@@ -11,3 +12,8 @@ const postSchema = new mongoose.Schema({
 });
 const postModel = mongoose.model("posts", postSchema);
 export default postModel;
+// post: {
+//   type: mongoose.Schema.Types.ObjectId,
+//   ref: "Post",
+//   required: true,
+// },

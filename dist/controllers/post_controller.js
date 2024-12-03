@@ -18,6 +18,7 @@ const createPost = async (req, res) => {
     try {
         const post = await Posts.create(req.body);
         if (post) {
+            console.log("A BANANAAAA post was created");
             res.status(201).send(post);
         }
         else {

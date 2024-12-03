@@ -1,17 +1,18 @@
 import mongoose from "mongoose";
 
 export interface iComment {
+  user: mongoose.Schema.Types.ObjectId;
   message: String;
-  sender: String;
   post: mongoose.Schema.Types.ObjectId;
 }
 
 const commentsSchema = new mongoose.Schema<iComment>({
-  message: {
-    type: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
-  sender: {
+  message: {
     type: String,
     required: true,
   },
