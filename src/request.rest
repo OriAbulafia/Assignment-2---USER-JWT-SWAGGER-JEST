@@ -13,26 +13,24 @@ Content-Type: application/json
 }
 
 ### Get all users
-GET http://localhost:3000/user/all
+GET http://localhost:3000/user
 
 
 
 ### Update user
-PUT http://localhost:3000/user/674f11dcf2f859baf6cc2a2c
+PUT http://localhost:3000/user/674f185dde9f6f677a52401e
 Content-Type: application/json
 
 {
-    "username": "Yef",
-    "password": "Sar",
-    "email" :"ASAS"
+    "username": "ori"
 }
 
 
 ### Get user by Id
-GET http://localhost:3000/user/674f11dcf2f859baf6cc2a2c
+GET http://localhost:3000/user/674f1859de9f6f677a52401b
 
 ###
-DELETE http://localhost:3000/user/674f12ce017275935c423963
+DELETE http://localhost:3000/user/674f1b4375ac9ef1f436cf90
 
 
 
@@ -44,7 +42,7 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-"user": "Sahar", 
+"user": "674f1b4375ac9ef1f436cf90", 
 "message": "This is a new post"
 }
 
@@ -53,25 +51,25 @@ Content-Type: application/json
 
 ### get all posts
 
-GET http://localhost:3000/post/all
+GET http://localhost:3000/post
 
 ###
 
 ### get posts by id
 
-GET http://localhost:3000/post/674ee7a6ead9fa1f6ec11bf0
+GET http://localhost:3000/post/674f19d8bad94a891b79917b
 
 ###
 
-### get posts by sender
+### get posts by user
 
-GET http://localhost:3000/post?sender=7777
+GET http://localhost:3000/post?user=674f185dde9f6f677a52401e
 
 ###
 
 ### update post
 
-PUT http://localhost:3000/post/674ee7a6ead9fa1f6ec11bf0 
+PUT http://localhost:3000/post/674f19d8bad94a891b79917b 
 Content-Type: application/json
 
 {
@@ -82,7 +80,7 @@ Content-Type: application/json
 
 ### delete post
 
-DELETE http://localhost:3000/post/674ef21d0b1efa133a7e4989
+DELETE http://localhost:3000/post/674f19d8bad94a891b79917b
 
 ###
 
@@ -95,28 +93,28 @@ POST http://localhost:3000/comment
 Content-Type: application/json
 
 {
-"post": "674ee82d48f041b0b083dcb5", 
-"sender": "7439", 
-"message": "This is a comment 2"
+"user": "674f1b4375ac9ef1f436cf90", 
+"message": "7439", 
+"post": "674f1b5075ac9ef1f436cf92"
 }
 
 ###
 
 ### get comment
 
-GET http://localhost:3000/comment/674ee85848f041b0b083dcc5
+GET http://localhost:3000/comment/674f1b6075ac9ef1f436cf95
 
 ###
 
 ### get comments by post
 
-GET http://localhost:3000/comment?post=674ee82d48f041b0b083dcb5
+GET http://localhost:3000/comment?post=674f1b6075ac9ef1f436cf95
 
 ###
 
 ### update comment
 
-PUT http://localhost:3000/comment/674ee85848f041b0b083dcc5 
+PUT http://localhost:3000/comment/674f1b6075ac9ef1f436cf95 
 Content-Type: application/json
 
 {
@@ -127,6 +125,6 @@ Content-Type: application/json
 
 ### delete comment
 
-DELETE http://localhost:3000/comment/674ee87b48f041b0b083dcd0
+DELETE http://localhost:3000/comment/674f1b6075ac9ef1f436cf95
 
 ###

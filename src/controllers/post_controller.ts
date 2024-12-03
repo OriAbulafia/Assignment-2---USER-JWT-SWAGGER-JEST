@@ -2,16 +2,24 @@ import Posts from "../models/post_model.js";
 import Comments from "../models/comment_model.js";
 import { Request, Response } from "express"; // Import Express types
 
-// Fetch all posts with optional filter by sender
+// Fetch all posts or post by user
 const getAllPosts = async (req: Request, res: Response): Promise<void> => {
-  const filter = req.query;
+  const userId = req.query.user as string;
   try {
-    const posts = filter.sender
-      ? await Posts.find({ sender: filter.sender })
-      : await Posts.find();
+    if (userId) {
+      const posts = await Posts.find({ user: userId });
+      if (posts.length === 0) {
+        res.status(404).send("No posts found for the given user");
+        return;
+      }
+      res.status(200).send(posts);
+      return;
+    }
+    const posts = await Posts.find();
     res.status(200).send(posts);
-  } catch (err: any) {
-    res.status(400).send(err.message);
+  }
+  catch (error: any) {
+    res.status(400).send(error.message);
   }
 };
 
@@ -20,7 +28,6 @@ const createPost = async (req: Request, res: Response): Promise<void> => {
   try {
     const post = await Posts.create(req.body);
     if (post) {
-      console.log("A BANANAAAA post was created");
       res.status(201).send(post);
     } else {
       res.status(404).send("Post not created");
