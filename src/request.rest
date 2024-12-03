@@ -6,8 +6,8 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-"sender": "ori", 
-"message": "This is a new message"
+"sender": "Sahar", 
+"message": "This is a new post"
 }
 
 ###
@@ -43,7 +43,7 @@ Content-Type: application/json
 
 ### delete post
 
-DELETE http://localhost:3000/post/674ee82d48f041b0b083dcb5
+DELETE http://localhost:3000/post/674ef21d0b1efa133a7e4989
 
 ###
 

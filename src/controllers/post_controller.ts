@@ -20,6 +20,7 @@ const createPost = async (req: Request, res: Response): Promise<void> => {
   try {
     const post = await Posts.create(req.body);
     if (post) {
+      console.log("A BANANAAAA post was created");
       res.status(201).send(post);
     } else {
       res.status(404).send("Post not created");
