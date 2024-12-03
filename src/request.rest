@@ -6,7 +6,7 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-"sender": "6666", 
+"sender": "ori", 
 "message": "This is a new message"
 }
 
@@ -20,19 +20,19 @@ GET http://localhost:3000/post/all
 
 ### get posts by id
 
-GET http://localhost:3000/post/674dc1ccf960fe218d4959ad
+GET http://localhost:3000/post/674ee7a6ead9fa1f6ec11bf0
 
 ###
 
 ### get posts by sender
 
-GET http://localhost:3000/post?sender=6666
+GET http://localhost:3000/post?sender=7777
 
 ###
 
 ### update post
 
-PUT http://localhost:3000/post/674dc1ccf960fe218d4959ad 
+PUT http://localhost:3000/post/674ee7a6ead9fa1f6ec11bf0 
 Content-Type: application/json
 
 {
@@ -43,7 +43,7 @@ Content-Type: application/json
 
 ### delete post
 
-DELETE http://localhost:3000/post/674dc1ddf960fe218d4959af
+DELETE http://localhost:3000/post/674ee82d48f041b0b083dcb5
 
 ###
 
@@ -55,7 +55,7 @@ POST http://localhost:3000/comment
 Content-Type: application/json
 
 {
-"post": "674dc1ddf960fe218d4959af", 
+"post": "674ee82d48f041b0b083dcb5", 
 "sender": "7439", 
 "message": "This is a comment 2"
 }
@@ -64,19 +64,19 @@ Content-Type: application/json
 
 ### get comment
 
-GET http://localhost:3000/comment/674dc213f960fe218d4959bf
+GET http://localhost:3000/comment/674ee85848f041b0b083dcc5
 
 ###
 
 ### get comments by post
 
-GET http://localhost:3000/comment?post=674dc1ddf960fe218d4959af
+GET http://localhost:3000/comment?post=674ee82d48f041b0b083dcb5
 
 ###
 
 ### update comment
 
-PUT http://localhost:3000/comment/674dc210f960fe218d4959bc 
+PUT http://localhost:3000/comment/674ee85848f041b0b083dcc5 
 Content-Type: application/json
 
 {
@@ -87,6 +87,6 @@ Content-Type: application/json
 
 ### delete comment
 
-DELETE http://localhost:3000/comment/674dc210f960fe218d4959bc
+DELETE http://localhost:3000/comment/674ee87b48f041b0b083dcd0
 
 ###
