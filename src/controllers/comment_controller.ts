@@ -5,9 +5,9 @@ import { Request, Response } from "express"; // Import Express types
 
 // Add a new comment to a post
 const addComment = async (req: Request, res: Response): Promise<void> => {
-  const { post, sender, message } = req.body;
-  if (!mongoose.Types.ObjectId.isValid(post)) {
-    res.status(400).json({ error: "Invalid postId" });
+  const { user, message, post } = req.body;
+  if (!mongoose.Types.ObjectId.isValid(user) || !mongoose.Types.ObjectId.isValid(post)) {
+    res.status(400).json({ error: "Invalid userId or postID" });
     return;
   }
   try {
@@ -17,7 +17,7 @@ const addComment = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const comment = new Comments({ post, sender, message });
+    const comment = new Comments({ user, message, post });
     await comment.save();
     res.status(201).json(comment);
   } catch (err: any) {
