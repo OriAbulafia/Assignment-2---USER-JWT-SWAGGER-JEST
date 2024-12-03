@@ -8,7 +8,12 @@ import comment_routes from "./routes/comment_routes.js";
 
 const app = express();
 const port = process.env.PORT;
-mongoose.connect(process.env.DB_CONNECT);
+if (process.env.DB_CONNECT === undefined) {
+  console.error("DB_CONNECT is not defined");
+  Promise.reject();
+} else {
+  mongoose.connect(process.env.DB_CONNECT);
+}
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {

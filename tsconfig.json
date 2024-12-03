@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                   // Ensure you're targeting modern JavaScript (ESNext)
+      "module": "ESNext",                   // Use ESNext to enable ES modules support
+      "moduleResolution": "node",           // Resolves module imports like Node.js does
+      "esModuleInterop": true,              // Allow default imports from CommonJS modules
+      "outDir": "./dist",                   // Output folder for compiled files
+      "allowJs": true,                      // Allows JavaScript files alongside TypeScript
+      "skipLibCheck": true,                 // Skip type checking of declaration files
+      "resolveJsonModule": true,            // Allows importing JSON files if necessary
+      "strict": true,                       // Strict type checking for better safety
+      "experimentalDecorators": true,       // If you're using decorators, enable this flag
+    },
+    "include": ["src/**/*"],                 // Include all files in the src directory
+    "exclude": ["node_modules"]              // Exclude node_modules folder
+  }
+  
