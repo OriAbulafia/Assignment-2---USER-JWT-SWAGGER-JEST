@@ -1,3 +1,5 @@
+###################################### User API ####################################
+
 ### userAPI
 
 ### Create a user
@@ -5,7 +7,7 @@ POST http://localhost:3000/user
 Content-Type: application/json
 
 {
-    "username": "ABC",
+    "username": "Sahar",
     "password": "yosef",
     "email": "abuabu@gmail.abuabu"
 }
@@ -15,11 +17,26 @@ GET http://localhost:3000/user/all
 
 
 
-### Get user by username or by email
-GET http://localhost:3000/user?username=ABC
+### Update user
+PUT http://localhost:3000/user/674f11dcf2f859baf6cc2a2c
+Content-Type: application/json
+
+{
+    "username": "Yef",
+    "password": "Sar",
+    "email" :"ASAS"
+}
 
 
-### post api
+### Get user by Id
+GET http://localhost:3000/user/674f11dcf2f859baf6cc2a2c
+
+###
+DELETE http://localhost:3000/user/674f12ce017275935c423963
+
+
+
+###################################### Post API ####################################
 
 ### create post
 
@@ -30,6 +47,7 @@ Content-Type: application/json
 "user": "Sahar", 
 "message": "This is a new post"
 }
+
 
 ###
 
@@ -68,7 +86,8 @@ DELETE http://localhost:3000/post/674ef21d0b1efa133a7e4989
 
 ###
 
-### comment api
+###################################### Comment API ####################################
+
 
 ### create comment
 
