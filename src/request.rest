@@ -1,3 +1,24 @@
+### userAPI
+
+### Create a user
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "username": "ABC",
+    "password": "yosef",
+    "email": "abuabu@gmail.abuabu"
+}
+
+### Get all users
+GET http://localhost:3000/user/all
+
+
+
+### Get user by username or by email
+GET http://localhost:3000/user?username=ABC
+
+
 ### post api
 
 ### create post
@@ -6,8 +27,8 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-"sender": "ori", 
-"message": "This is a new message"
+"user": "Sahar", 
+"message": "This is a new post"
 }
 
 ###
@@ -43,7 +64,7 @@ Content-Type: application/json
 
 ### delete post
 
-DELETE http://localhost:3000/post/674ee82d48f041b0b083dcb5
+DELETE http://localhost:3000/post/674ef21d0b1efa133a7e4989
 
 ###
 

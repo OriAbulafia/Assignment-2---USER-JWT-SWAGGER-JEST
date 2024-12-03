@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
 export interface iPost {
-  sender: String,
-  message: String,
+  user: mongoose.Schema.Types.ObjectId;
+  message: String;
 }
 
 const postSchema = new mongoose.Schema<iPost>({
-  sender: {
-    type: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
   message: {
@@ -19,3 +20,9 @@ const postSchema = new mongoose.Schema<iPost>({
 const postModel = mongoose.model<iPost>("posts", postSchema);
 
 export default postModel;
+
+// post: {
+//   type: mongoose.Schema.Types.ObjectId,
+//   ref: "Post",
+//   required: true,
+// },
