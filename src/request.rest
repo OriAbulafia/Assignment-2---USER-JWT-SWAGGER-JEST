@@ -48,7 +48,7 @@ Content-Type: application/json
 
 {
 "user": "675181b4c694d6098e2d1f24", 
-"username": " "
+"username": "Sahar "
 "message": "This is a new post"
 }
 
