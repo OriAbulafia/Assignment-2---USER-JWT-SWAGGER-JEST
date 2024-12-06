@@ -4,9 +4,12 @@ import mongoose from "mongoose";
 import { Request, Response } from "express"; // Import Express types
 
 // Add a new comment to a post
-const addComment = async (req: Request, res: Response): Promise<void> => {
+const addComment = async (req: Request, res: Response) => {
   const { user, message, post } = req.body;
-  if (!mongoose.Types.ObjectId.isValid(user) || !mongoose.Types.ObjectId.isValid(post)) {
+  if (
+    !mongoose.Types.ObjectId.isValid(user) ||
+    !mongoose.Types.ObjectId.isValid(post)
+  ) {
     res.status(400).json({ error: "Invalid userId or postID" });
     return;
   }
@@ -26,7 +29,7 @@ const addComment = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Retrieve all comments for a specific post
-const getAllCommentsInAPost = async (req: Request, res: Response): Promise<void> => {
+const getAllCommentsInAPost = async (req: Request, res: Response) => {
   const postId = req.query.post as string;
   if (!mongoose.Types.ObjectId.isValid(postId)) {
     res.status(400).json({ error: "Invalid postId" });
@@ -47,7 +50,7 @@ const getAllCommentsInAPost = async (req: Request, res: Response): Promise<void>
 };
 
 // Retrieve a comment by its ID
-const getCommentById = async (req: Request, res: Response): Promise<void> => {
+const getCommentById = async (req: Request, res: Response) => {
   const commentId = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(commentId)) {
     res.status(400).json({ error: "Invalid commentId" });
@@ -66,7 +69,7 @@ const getCommentById = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Update a comment by its ID
-const updateComment = async (req: Request, res: Response): Promise<void> => {
+const updateComment = async (req: Request, res: Response) => {
   const { message } = req.body;
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -89,7 +92,7 @@ const updateComment = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Delete a comment by its ID
-const deleteComment = async (req: Request, res: Response): Promise<void> => {
+const deleteComment = async (req: Request, res: Response) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     res.status(400).json({ error: "Invalid commentId" });

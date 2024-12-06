@@ -3,11 +3,12 @@ import Comments from "../models/comment_model.js";
 import { Request, Response } from "express"; // Import Express types
 
 // Fetch all posts or post by user
-const getAllPosts = async (req: Request, res: Response): Promise<void> => {
+const getAllPosts = async (req: Request, res: Response) => {
   const userId = req.query.user as string;
   try {
     if (userId) {
-      const posts = await Posts.find({ user: userId });
+      const posts = await Posts.find({ user: userId }).populate("user");
+      console.log(posts);
       if (posts.length === 0) {
         res.status(404).send("No posts found for the given user");
         return;
@@ -15,19 +16,20 @@ const getAllPosts = async (req: Request, res: Response): Promise<void> => {
       res.status(200).send(posts);
       return;
     }
-    const posts = await Posts.find();
+    const posts = await Posts.find().populate("user");
+    console.log(posts);
     res.status(200).send(posts);
-  }
-  catch (error: any) {
+  } catch (error: any) {
     res.status(400).send(error.message);
   }
 };
 
 // Create a new post
-const createPost = async (req: Request, res: Response): Promise<void> => {
+const createPost = async (req: Request, res: Response) => {
   try {
     const post = await Posts.create(req.body);
     if (post) {
+      console.log(post);
       res.status(201).send(post);
     } else {
       res.status(404).send("Post not created");
@@ -38,7 +40,7 @@ const createPost = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Get a post by ID
-const getPostById = async (req: Request, res: Response): Promise<void> => {
+const getPostById = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
     const post = await Posts.findById(id);
@@ -53,7 +55,7 @@ const getPostById = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Update a post by ID
-const updatePost = async (req: Request, res: Response): Promise<void> => {
+const updatePost = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
     const post = await Posts.findById(id);
@@ -70,7 +72,7 @@ const updatePost = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Delete a post by ID
-const deletePost = async (req: Request, res: Response): Promise<void> => {
+const deletePost = async (req: Request, res: Response) => {
   const postId = req.params.id;
   try {
     const validPost = await Posts.findById(postId);

@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema<iPost>({
   },
 });
 
-const postModel = mongoose.model<iPost>("posts", postSchema);
+const postModel = mongoose.model<iPost>("Post", postSchema);
 
 export default postModel;
 

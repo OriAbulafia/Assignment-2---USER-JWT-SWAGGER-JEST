@@ -3,31 +3,36 @@
 ### userAPI
 
 ### Create a user
-POST http://localhost:3000/user
+POST http://localhost:3000/user/register
 Content-Type: application/json
 
 {
-    "username": "Sahar",
-    "password": "yosef",
-    "email": "abuabu@gmail.abuabu"
+    "username": "ASDAS",
+    "password": "DSDSAS",
+    "email": "ASDASW@gmail.abuabu"
 }
 
-### Get all users
-GET http://localhost:3000/user
-
-
-
-### Update user
-PUT http://localhost:3000/user/674f185dde9f6f677a52401e
+### Login a user
+POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "username": "ori"
+    "email": "ASDASW@gmail.abuabu",
+    "password": "DSDSAS"
+}
+
+### Update a user
+PUT http://localhost:3000/user
+Content-Type: application/json
+
+{
+  "email": "newemail@example.com",
+  "username": "newusername"
 }
 
 
 ### Get user by Id
-GET http://localhost:3000/user/674f1859de9f6f677a52401b
+GET http://localhost:3000/user/675181b4c694d6098e2d1f24
 
 ###
 DELETE http://localhost:3000/user/674f1b4375ac9ef1f436cf90
@@ -42,7 +47,8 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-"user": "674f1b4375ac9ef1f436cf90", 
+"user": "675181b4c694d6098e2d1f24", 
+"username": " "
 "message": "This is a new post"
 }
 
