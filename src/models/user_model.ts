@@ -1,14 +1,20 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
+
+// Interface defining user data structure
 export interface iUser {
-  username: String;
-  password: String;
-  email: String;
+  username: string;
+  password: string;
+  email: string;
 }
 
-const userSchema = new mongoose.Schema<iUser>({
+// Interface for Mongoose Document with user data
+export interface iUserDocument extends Document, iUser {}
+
+const userSchema = new Schema<iUserDocument>({
   username: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -17,9 +23,11 @@ const userSchema = new mongoose.Schema<iUser>({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
 });
 
-const userModel = mongoose.model<iUser>("users", userSchema);
+// Create and export the model using IUserDocument
+const userModel = mongoose.model<iUserDocument>("User", userSchema);
 
 export default userModel;
