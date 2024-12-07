@@ -18,15 +18,16 @@ interface DecodedToken extends JwtPayload {
 
 const authUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const accessToken = req.headers["authorization"] as string | undefined;
-    const refreshToken = req.cookies["refreshToken"] as string | undefined;
+    const accessToken = req.headers["authorization"]?.split(" ")[1]; // Extract Bearer token
+    const refreshToken = req.cookies["refreshToken"];
 
     if (!accessToken && !refreshToken) {
       res.status(401);
-      throw new Error("A token is missing");
+      throw new Error("Access Denied. No token provided.");
     }
 
     try {
+      // Validate access token
       if (accessToken) {
         const decoded = jwt.verify(
           accessToken,
@@ -36,45 +37,41 @@ const authUser = asyncHandler(
         const user = await User.findById(decoded.id).select("-password");
         if (!user) {
           res.status(404);
-          throw new Error("User not found");
+          throw new Error("User not found.");
         }
 
-        req.user = user.toObject() as iUser & { _id: string }; // Include _id in req.user
+        req.user = user.toObject() as iUser & { _id: string }; // Attach user to req
         return next();
       }
     } catch (err) {
-      // Continue to check the refresh token.
+      // Log the error if needed (e.g., expired token) and move to refresh token logic
     }
 
-    if (!refreshToken) {
-      res.status(401);
-      throw new Error("Access Denied. No valid token provided.");
-    }
-
+    // Handle refresh token
     try {
-      const decoded = jwt.verify(
-        refreshToken,
-        process.env.REFRESH_TOKEN as string
-      ) as DecodedToken;
+      if (refreshToken) {
+        const decoded = jwt.verify(
+          refreshToken,
+          process.env.REFRESH_TOKEN as string
+        ) as DecodedToken;
 
-      const newAccessToken = jwt.sign(
-        { id: decoded.id },
-        process.env.ACCESS_TOKEN as string,
-        { expiresIn: "1h" }
-      );
+        const user = await User.findById(decoded.id).select("-password");
+        if (!user) {
+          res.status(404);
+          throw new Error("User not found.");
+        }
 
-      res.cookie("refreshToken", refreshToken, {
-        httpOnly: true,
-        sameSite: "strict",
-      });
+        // Generate new access token
+        const newAccessToken = jwt.sign(
+          { id: user._id },
+          process.env.ACCESS_TOKEN as string,
+          { expiresIn: "1h" }
+        );
 
-      res.setHeader("Authorization", newAccessToken);
-
-      res.status(200).send({
-        success: true,
-        token: true,
-        message: "Refreshed token",
-      });
+        req.user = user.toObject() as iUser & { _id: string }; // Attach user to req
+        res.setHeader("Authorization", `Bearer ${newAccessToken}`); // Send new token in headers
+        return next(); // Continue to the next middleware
+      }
     } catch (err) {
       res.status(401);
       throw new Error("Access Denied. Invalid refresh token.");

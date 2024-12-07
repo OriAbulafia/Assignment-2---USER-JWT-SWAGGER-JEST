@@ -1,55 +1,57 @@
 ###################################### User API ####################################
 
-### userAPI
-
-### Create a user
+### Register a new user
 POST http://localhost:3000/user/register
 Content-Type: application/json
 
 {
-    "username": "ASDAS",
-    "password": "DSDSAS",
-    "email": "ASDASW@gmail.abuabu"
+  "username": "PostTest",
+  "password": "testPassword",
+  "email": "PostTest@example.com"
 }
 
-### Login a user
+### Login
 POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "email": "ASDASW@gmail.abuabu",
-    "password": "DSDSAS"
+  "email": "PostTest@example.com",
+  "password": "testPassword"
 }
 
-### Update a user
-PUT http://localhost:3000/user
+### Refresh token
+POST http://localhost:3000/user/refresh
 Content-Type: application/json
-
-{
-  "email": "newemail@example.com",
-  "username": "newusername"
-}
-
-
-### Get user by Id
-GET http://localhost:3000/user/675181b4c694d6098e2d1f24
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ0ZDVjYjhiNDUzNTA5YTdkMmI1MSIsImlhdCI6MTczMzU3ODA4OSwiZXhwIjoxNzM2MTcwMDg5fQ.vNMpAduwGt6hmZy4x7ukPC4sbf7TjQJBgcyHiK6C7KU
 
 ###
-DELETE http://localhost:3000/user/674f1b4375ac9ef1f436cf90
 
+### Update user details
+PUT http://localhost:3000/user/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ0ZDVjYjhiNDUzNTA5YTdkMmI1MSIsImlhdCI6MTczMzU3ODExNiwiZXhwIjoxNzMzNTgxNzE2fQ.PUrGJrOu_e39V_2fTPn1d2sfeAGyPrWAZNGZjn1GjvM
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ0ZDVjYjhiNDUzNTA5YTdkMmI1MSIsImlhdCI6MTczMzU3ODA4OSwiZXhwIjoxNzM2MTcwMDg5fQ.vNMpAduwGt6hmZy4x7ukPC4sbf7TjQJBgcyHiK6C7KU
 
+{
+  "username": "newTestUser",
+  "email": "newTestUser@example.com"
+}
+
+### Delete user
+DELETE http://localhost:3000/user/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTQ0ZDVjYjhiNDUzNTA5YTdkMmI1MSIsImlhdCI6MTczMzU3ODExNiwiZXhwIjoxNzMzNTgxNzE2fQ.PUrGJrOu_e39V_2fTPn1d2sfeAGyPrWAZNGZjn1GjvM
 
 ###################################### Post API ####################################
 
 ### create post
 
-POST http://localhost:3000/post 
+POST http://localhost:3000/post
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzU5OTUzMywiZXhwIjoxNzMzNjAzMTMzfQ.nCVzT-5JPo7k69EZp702CUYR3qy4kv_0ML9WBR3JsSw
 
 {
-"user": "675181b4c694d6098e2d1f24", 
-"username": "Sahar "
-"message": "This is a new post"
+  "message": "This is a valid post message."
 }
 
 
@@ -63,74 +65,70 @@ GET http://localhost:3000/post
 
 ### get posts by id
 
-GET http://localhost:3000/post/674f19d8bad94a891b79917b
+### Get post by ID
+GET http://localhost:3000/post/6754a13d9671e02dd4f069c9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzU5OTUzMywiZXhwIjoxNzMzNjAzMTMzfQ.nCVzT-5JPo7k69EZp702CUYR3qy4kv_0ML9WBR3JsSw
 
 ###
 
-### get posts by user
-
-GET http://localhost:3000/post?user=674f185dde9f6f677a52401e
-
+### Get posts by user
+GET http://localhost:3000/post?user=6754a11e9671e02dd4f069c5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzU5OTUzMywiZXhwIjoxNzMzNjAzMTMzfQ.nCVzT-5JPo7k69EZp702CUYR3qy4kv_0ML9WBR3JsSw
 ###
 
 ### update post
 
-PUT http://localhost:3000/post/674f19d8bad94a891b79917b 
+PUT http://localhost:3000/post/6754a13d9671e02dd4f069c9
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzU5OTUzMywiZXhwIjoxNzMzNjAzMTMzfQ.nCVzT-5JPo7k69EZp702CUYR3qy4kv_0ML9WBR3JsSw
 
 {
-"message": "This age"
+  "message": "This is an updated message."
 }
 
-###
-
-### delete post
-
-DELETE http://localhost:3000/post/674f19d8bad94a891b79917b
-
+### delete posteyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzU5OTUzMywiZXhwIjoxNzMzNjAzMTMzfQ.nCVzT-5JPo7k69EZp702CUYR3qy4kv_0ML9WBR3JsSw
+DELETE http://localhost:3000/post/6754a13d9671e02dd4f069c9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzU5OTUzMywiZXhwIjoxNzMzNjAzMTMzfQ.nCVzT-5JPo7k69EZp702CUYR3qy4kv_0ML9WBR3JsSw
 ###
 
 ###################################### Comment API ####################################
 
-
-### create comment
-
-POST http://localhost:3000/comment 
+### Create comment
+POST http://localhost:3000/comment
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzYwMDM1NSwiZXhwIjoxNzMzNjAzOTU1fQ.l_IK3q8eOfaQgknTO1OgqqduIm3hZINaTpzH7i8nnTo
 
 {
-"user": "674f1b4375ac9ef1f436cf90", 
-"message": "7439", 
-"post": "674f1b5075ac9ef1f436cf92"
+  "user": "675181b4c694d6098e2d1f24",
+  "message": "This is a test comment", 
+  "post": "675181dfc694d6098e2d1f2a"
 }
 
 ###
 
-### get comment
-
-GET http://localhost:3000/comment/674f1b6075ac9ef1f436cf95
-
-###
-
-### get comments by post
-
-GET http://localhost:3000/comment?post=674f1b6075ac9ef1f436cf95
+### Get comment by ID
+GET http://localhost:3000/comment/6754a4cb742e9993e96457c9
 
 ###
 
-### update comment
+### Get comments by post
+GET http://localhost:3000/comment?post=675181dfc694d6098e2d1f2a
 
-PUT http://localhost:3000/comment/674f1b6075ac9ef1f436cf95 
+###
+
+### Update comment
+PUT http://localhost:3000/comment/6754a4cb742e9993e96457c9
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzYwMDM1NSwiZXhwIjoxNzMzNjAzOTU1fQ.l_IK3q8eOfaQgknTO1OgqqduIm3hZINaTpzH7i8nnTo
 
 {
-"message": "This update"
+  "message": "This is an updated comment"
 }
 
 ###
 
-### delete comment
-
-DELETE http://localhost:3000/comment/674f1b6075ac9ef1f436cf95
+### Delete comment
+DELETE http://localhost:3000/comment/6754a4cb742e9993e96457c9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTRhMTFlOTY3MWUwMmRkNGYwNjljNSIsImlhdCI6MTczMzYwMDM1NSwiZXhwIjoxNzMzNjAzOTU1fQ.l_IK3q8eOfaQgknTO1OgqqduIm3hZINaTpzH7i8nnTo
 
 ###

@@ -6,13 +6,14 @@ import {
   updateComment,
   deleteComment,
 } from "../controllers/comment_controller.js";
+import { authUser } from "../middleware/authMiddleware.js";
 
 const router: Router = express.Router();
 
-router.route("/").post(addComment);
+router.route("/").post(authUser, addComment);
 router.route("/").get(getAllCommentsInAPost);
-router.route("/:id").put(updateComment);
+router.route("/:id").put(authUser, updateComment);
 router.route("/:id").get(getCommentById);
-router.route("/:id").delete(deleteComment);
+router.route("/:id").delete(authUser, deleteComment);
 
 export default router;

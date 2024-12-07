@@ -11,7 +11,7 @@ interface ITokenPayload {
 }
 
 const register = asyncHandler(async (req: Request, res: Response) => {
-  const { name, email, password, username } = req.body;
+  const { email, password, username } = req.body;
   if (!username || !password || !email) {
     res.status(400);
     throw new Error("Please provide name, email, password and username");

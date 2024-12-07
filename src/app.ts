@@ -1,5 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+
 dotenv.config();
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
@@ -23,6 +25,7 @@ db.once("open", () => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use("/post", post_routes);
 app.use("/comment", comment_routes);

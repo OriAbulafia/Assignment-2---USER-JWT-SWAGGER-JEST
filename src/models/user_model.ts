@@ -14,6 +14,7 @@ const userSchema = new Schema<iUserDocument>({
   username: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -22,6 +23,7 @@ const userSchema = new Schema<iUserDocument>({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
 });
 
