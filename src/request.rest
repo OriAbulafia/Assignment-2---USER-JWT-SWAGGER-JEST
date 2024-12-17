@@ -1,4 +1,43 @@
-### POST REQUESTS
+############################################################## USER API ########################################################
+
+### Register
+
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "email": "D@gmail.com",
+    "password": "Sahar"
+}
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "D@gmail.com",
+    "password": "Sahar"
+}
+
+### Refresh 
+POST http://localhost:3000/auth/refresh
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxNzNiNmRmYzUzNDgyOTZhZTVjMDYiLCJyYW5kb20iOjk0Mzc2OCwiaWF0IjoxNzM0NDQwMDczLCJleHAiOjE3MzUwNDQ4NzN9.pUR_KFFz2rQIpZbxhVNkQWN8bsjlroNU5d7ouh6TW3s"
+}
+
+### Logout
+
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxNzNiNmRmYzUzNDgyOTZhZTVjMDYiLCJyYW5kb20iOjg5MTg5LCJpYXQiOjE3MzQ0NDAwODYsImV4cCI6MTczNTA0NDg4Nn0.9TWHksaFCB1n08mxZ4k7IREkLFpxeM-IwSFfGfi63yQ"
+}
+
+
+############################################################## POST API ########################################################
 
 ### CREATE A NEW POST
 
@@ -17,15 +56,15 @@ GET http://localhost:3000/posts
 
 ### GET A SINGLE POST BY ID
 
-GET http://localhost:3000/posts/67608a27bf471bc4e7265d28
+GET http://localhost:3000/posts/676138aab4547af240247768
 
 ### GET POSTS BY OWNER
 
-GET http://localhost:3000/posts?owner=Ori
+GET http://localhost:3000/posts?owner=elad
 
 ### UPDATE A POST BY ID
 
-PUT http://localhost:3000/posts/67608ae9bf471bc4e7265d36
+PUT http://localhost:3000/posts/676138deb4547af240247773
 Content-Type: application/json
 
 {
@@ -34,7 +73,7 @@ Content-Type: application/json
 
 ### DELETE A POST BY ID
 
-DELETE http://localhost:3000/posts/67613424a3473b6072580340
+DELETE http://localhost:3000/posts/676138deb4547af240247773
 
 ### COMMENTS REQUESTS
 
@@ -46,7 +85,7 @@ Content-Type: application/json
 {
     "comment": "This is my first comment",
     "owner": "elad",
-    "postId": "67608dc8299a3639e1121c15"
+    "postId": "676138deb4547af240247773"
 }
 
 ### GET ALL COMMENTS
@@ -55,11 +94,11 @@ GET http://localhost:3000/comments
 
 ### GET A SINGLE COMMENT BY ID
 
-GET http://localhost:3000/comments/67608dfb299a3639e1121c18
+GET http://localhost:3000/comments/676138fdb4547af240247778
 
 ### UPDATE A COMMENT BY ID
 
-PUT http://localhost:3000/comments/67608dfb299a3639e1121c18
+PUT http://localhost:3000/comments/676138fdb4547af240247778
 Content-Type: application/json
 
 {
@@ -68,4 +107,5 @@ Content-Type: application/json
 
 ### DELETE A COMMENT BY ID
 
-DELETE http://localhost:3000/comments/6760920ce97ef0b59ece183e
+DELETE http://localhost:3000/comments/676138fdb4547af240247778
+
