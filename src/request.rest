@@ -1,0 +1,71 @@
+### POST REQUESTS
+
+### CREATE A NEW POST
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "owner": "elad",
+    "title": "My first post",
+    "content": "This is my first post"
+}
+
+### GET ALL POSTS
+
+GET http://localhost:3000/posts
+
+### GET A SINGLE POST BY ID
+
+GET http://localhost:3000/posts/67608a27bf471bc4e7265d28
+
+### GET POSTS BY OWNER
+
+GET http://localhost:3000/posts?owner=Ori
+
+### UPDATE A POST BY ID
+
+PUT http://localhost:3000/posts/67608ae9bf471bc4e7265d36
+Content-Type: application/json
+
+{
+    "title": "This Post"
+}
+
+### DELETE A POST BY ID
+
+DELETE http://localhost:3000/posts/67613424a3473b6072580340
+
+### COMMENTS REQUESTS
+
+### CREATE A NEW COMMENT
+
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+    "comment": "This is my first comment",
+    "owner": "elad",
+    "postId": "67608dc8299a3639e1121c15"
+}
+
+### GET ALL COMMENTS
+
+GET http://localhost:3000/comments
+
+### GET A SINGLE COMMENT BY ID
+
+GET http://localhost:3000/comments/67608dfb299a3639e1121c18
+
+### UPDATE A COMMENT BY ID
+
+PUT http://localhost:3000/comments/67608dfb299a3639e1121c18
+Content-Type: application/json
+
+{
+    "owner": "This"
+}
+
+### DELETE A COMMENT BY ID
+
+DELETE http://localhost:3000/comments/6760920ce97ef0b59ece183e
