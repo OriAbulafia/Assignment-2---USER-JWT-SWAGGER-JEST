@@ -3,19 +3,24 @@ import { Request, Response } from "express";
 import BaseController from "./base_controller";
 import Posts from "../models/posts_model";
 
-const commentsController = new BaseController(commentsModel);
-
-const getByPostId = async (req: Request, res: Response) => {
-  const id = req.params.postId;
-  try {
-    const post = await Posts.findById(id);
-    if (!post) {
-      res.status(404).send("Post id is invalid");
-      return;
-    }
-    res.status(200).send(post);
-  } catch (error) {
-    res.status(400).send(error);
+class CommentsController extends BaseController
+{
+  constructor(model: any)
+  {
+    super(model);
   }
+
+  async createItem(req: Request, res: Response)
+  {
+    const _id = req.query.userId;
+    const post = {
+      ...req.body,
+      owner: _id,
+    };
+    req.body = post;
+    return super.createItem(req, res);
+  }
+
 };
-export { commentsController, getByPostId };
+
+export default new CommentsController(commentsModel);

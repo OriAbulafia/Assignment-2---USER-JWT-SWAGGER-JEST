@@ -11,4 +11,6 @@ router.post("/logout", authController.logout);
 
 router.post("/refresh", authController.refresh);
 
+router.delete("/delete", authController.deleteUser);
+
 export default router;
