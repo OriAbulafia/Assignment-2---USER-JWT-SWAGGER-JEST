@@ -1,8 +1,5 @@
 import express, { Request, Response } from "express";
-import {
-  commentsController,
-  getByPostId,
-} from "../controllers/comments_controller";
+import commentsController from "../controllers/comments_controller";
 import { authMiddleware } from "../controllers/auth_controller";
 
 const router = express.Router();
@@ -13,10 +10,6 @@ router.get("/", (req: Request, res: Response) => {
 
 router.get("/:id", (req: Request, res: Response) => {
   commentsController.getById(req, res);
-});
-
-router.get("/post/:postId", (req: Request, res: Response) => {
-  getByPostId(req, res);
 });
 
 router.post("/", authMiddleware, (req: Request, res: Response) => {

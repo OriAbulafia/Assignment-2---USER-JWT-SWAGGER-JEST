@@ -215,4 +215,27 @@ export const authMiddleware = (
   }
 };
 
-export default { register, login, logout, refresh };
+const deleteUser = async (req: Request, res: Response) => {
+  const userEmail = req.body.email;
+  const password = req.body.password;
+  if (!userEmail || !password) {
+    res.status(400).send("missing email or password");
+    return;
+  }
+  const user = await userModel.findOne({ email: userEmail });
+  if (!user) {
+    res.status(400).send("wrong email or password");
+    return;
+  }
+  const validPassword = await bcrypt.compare(password, user.password);
+  if (!validPassword) {
+    res.status(400).send("wrong email or password");
+    return;
+  }
+  await commentModel.deleteMany({ owner: user._id });
+  await Posts.deleteMany({ owner: user._id });
+  await userModel.deleteOne({ _id: user._id });
+  res.status(200).send("user deleted");
+};
+
+export default { register, login, logout, refresh, deleteUser };
