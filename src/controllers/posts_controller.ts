@@ -21,7 +21,7 @@ class PostController extends BaseController {
 
   async deleteItem(req: Request, res: Response) {
     const _id = req.params.id;
-    await commentModel.deleteMany({ postId: _id })
+    await commentModel.deleteMany({ postId: _id });
     return super.deleteItem(req, res);
   }
 }

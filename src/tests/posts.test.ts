@@ -54,11 +54,6 @@ const testPostFail = {
 };
 
 describe("Posts Tests", () => {
-  test("Posts Get All test", async () => {
-    const response = await request(app).get("/posts");
-    expect(response.statusCode).toBe(200);
-  });
-
   test("Posts Create test", async () => {
     const response = await request(app)
       .post("/posts")
@@ -70,6 +65,21 @@ describe("Posts Tests", () => {
     expect(post.title).toBe(testPost1.title);
     expect(post.content).toBe(testPost1.content);
     postId = post._id;
+  });
+
+  test("Posts Get All test", async () => {
+    const response = await request(app).get("/posts");
+    expect(response.statusCode).toBe(200);
+  });
+
+  test("Posts Create test - wrong accessToken", async () => {
+    let toModify: string = userInfo.accessToken as string;
+    let modified = toModify.slice(0, 1) + "3" + toModify.slice(2);
+    const response = await request(app)
+      .post("/posts")
+      .set("authorization", "JWT " + modified)
+      .send(testPost1);
+    expect(response.statusCode).toBe(403);
   });
 
   test("Posts Create test fail", async () => {
@@ -116,6 +126,11 @@ describe("Posts Tests", () => {
     expect(response.statusCode).toBe(200);
     expect(post.owner).toBe(userInfo._id);
     expect(response.body.length).toBe(2);
+  });
+
+  test("Posts get posts by owner- fail wrong owner", async () => {
+    const response = await request(app).get("/posts?owner=" + 123456);
+    expect(response.statusCode).not.toBe(200);
   });
 
   test("Posts Update test", async () => {

@@ -6,8 +6,9 @@
   "scripts": {
     "start": "tsc && node ./dist/src/app.js",
     "dev": "tsc && nodemon ./src/app.ts",
-    "test": " tsc && jest --detectOpenHandles --forceExit --coverage",
-    "testPosts": "tsc && jest --detectOpenHandles --forceExit posts.test.ts --coverage"
+    "test": " tsc && jest --detectOpenHandles --forceExit --coverage --runInBand",
+    "testPosts": "tsc && jest --detectOpenHandles --forceExit posts.test.ts --coverage",
+    "testComments": "tsc && jest --detectOpenHandles --forceExit comments.test.ts --coverage"
   },
   "author": "Ori Abulafia",
   "license": "ISC",
