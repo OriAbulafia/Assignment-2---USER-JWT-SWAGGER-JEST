@@ -15,7 +15,7 @@ POST http://localhost:3001/auth/login
 Content-Type: application/json
 
 {
-    "email": "D@gmail.com",
+    "email": "DS@gmail.com",
     "password": "Sahar"
 }
 
@@ -24,7 +24,7 @@ POST http://localhost:3001/auth/refresh
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxNzNiNmRmYzUzNDgyOTZhZTVjMDYiLCJyYW5kb20iOjk0Mzc2OCwiaWF0IjoxNzM0NDQwMDczLCJleHAiOjE3MzUwNDQ4NzN9.pUR_KFFz2rQIpZbxhVNkQWN8bsjlroNU5d7ouh6TW3s"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYyOTg1M2MyNjg2ZDFjNzM5MzJhZmIiLCJyYW5kb20iOjU2OCwiaWF0IjoxNzM0NTE0ODkyLCJleHAiOjE3MzUxMTk2OTJ9.lBjBFKD82Aa3Gjv7qvNuwFKfjlaAEp2x6ZmCd-usG_o"
 }
 
 ### Logout
@@ -33,7 +33,7 @@ POST http://localhost:3001/auth/logout
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxNzNiNmRmYzUzNDgyOTZhZTVjMDYiLCJyYW5kb20iOjg5MTg5LCJpYXQiOjE3MzQ0NDAwODYsImV4cCI6MTczNTA0NDg4Nn0.9TWHksaFCB1n08mxZ4k7IREkLFpxeM-IwSFfGfi63yQ"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYyOTdlY2MyNjg2ZDFjNzM5MzJhZTMiLCJyYW5kb20iOjk3MTkwMiwiaWF0IjoxNzM0NTE0NzAwLCJleHAiOjE3MzUxMTk1MDB9.xJpVAtaDjGvBFfhEZ7mMh3zxZjhzEAxwdTzlHM4CGKo"
 }
 ### DELETE USER
 
@@ -93,12 +93,12 @@ Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxN2ZiYTZh
 ### CREATE A NEW COMMENT
 
 POST http://localhost:3001/comments
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxOGI0NzdiZDBmZGRmYjk2M2NhOWQiLCJyYW5kb20iOjcwNTQ1MiwiaWF0IjoxNzM0NDQ1OTAxLCJleHAiOjE3MzUwNTA3MDF9.bmsluhN2Gxq2tk-McTFi3l_wN8FeDea0TbHoZxpkAP8
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYyOTg1M2MyNjg2ZDFjNzM5MzJhZmIiLCJyYW5kb20iOjE0NDY2NSwiaWF0IjoxNzM0NTE0OTcxLCJleHAiOjE3MzUxMTk3NzF9.tbI6PZYAGuMTr-Qzbd4bYJcIpPibztwCrARb58kDCIg
 Content-Type: application/json
 
 {
     "comment": "This is my first comment",
-    "postId": "67618b637bd0fddfb963caa1"
+    "postId": "67629879c2686d1c73932b02"
 }
 
 ### GET ALL COMMENTS

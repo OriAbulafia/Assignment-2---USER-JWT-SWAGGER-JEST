@@ -37,7 +37,6 @@ const generateTokens = (
   const random = Math.floor(Math.random() * 1000000);
   let accessToken = "";
   let refreshToken = "";
-
   if (process.env.TOKEN_SECRET) {
     accessToken = jwt.sign(
       {
@@ -233,6 +232,7 @@ const deleteUser = async (req: Request, res: Response) => {
     return;
   }
   await commentModel.deleteMany({ owner: user._id });
+
   await Posts.deleteMany({ owner: user._id });
   await userModel.deleteOne({ _id: user._id });
   res.status(200).send("user deleted");
