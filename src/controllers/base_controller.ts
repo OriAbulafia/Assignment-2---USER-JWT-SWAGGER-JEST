@@ -13,7 +13,11 @@ class BaseController {
       Object.keys(filter).length === 0
         ? await this.model.find()
         : await this.model.find(filter);
-    res.send(data);
+    if (Object.keys(data).length === 0) {
+      res.status(404).send("No data found");
+    } else {
+      res.send(data);
+    }
   }
 
   async getById(req: Request, res: Response) {

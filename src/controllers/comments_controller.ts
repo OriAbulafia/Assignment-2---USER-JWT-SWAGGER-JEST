@@ -13,11 +13,11 @@ class CommentsController extends BaseController
   async createItem(req: Request, res: Response)
   {
     const _id = req.query.userId;
-    const post = {
+    const comment = {
       ...req.body,
       owner: _id,
     };
-    req.body = post;
+    req.body = comment;
     return super.createItem(req, res);
   }
 
