@@ -15,7 +15,7 @@ type UserInfo = {
   _id?: string;
 };
 const userInfo: UserInfo = {
-  email: "eliav@gmail.com",
+  email: "Sahar@gmail.com",
   password: "123456",
 };
 
@@ -37,20 +37,20 @@ afterAll(async () => {
 var postId = "";
 
 const testPost1 = {
-  owner: "Eliav",
+  owner: "Sahar",
   title: "My First post",
   content: "This is my first post",
 };
 
 const testPost2 = {
-  owner: "Eliav2",
+  owner: "Sahar",
   title: "My First post 2",
   content: "This is my first post 2",
 };
 
 const testPostFail = {
   content: "This is my first post 2",
-  owner: "Eliav2",
+  owner: "Sahar",
 };
 
 describe("Posts Tests", () => {
