@@ -16,12 +16,12 @@ type UserInfo = {
   _id?: string;
 };
 const userInfo: UserInfo = {
-  email: "eliav@gmail.com",
+  email: "Ori@gmail.com",
   password: "123456",
 };
 
 const testPost1 = {
-  owner: "Eliav",
+  owner: "Ori",
   title: "My First post",
   content: "This is my first post",
 };
@@ -78,11 +78,11 @@ describe("Comments Tests", () => {
   });
 
   test("Comment Create test - wrong accessToken", async () => {
-    let toModify : string = userInfo.accessToken as string;
+    let toModify: string = userInfo.accessToken as string;
     let modified = toModify.slice(0, 1) + "3" + toModify.slice(2);
     const response = await request(app)
       .post("/comments")
-      .set("authorization", "JWT "+ modified)
+      .set("authorization", "JWT " + modified)
       .send(testComment1);
     expect(response.statusCode).toBe(403);
   });
@@ -93,9 +93,7 @@ describe("Comments Tests", () => {
   });
 
   test("get comment by owner", async () => {
-    const response = await request(app).get(
-      "/comments?owner=" + userInfo._id 
-    );
+    const response = await request(app).get("/comments?owner=" + userInfo._id);
     expect(response.statusCode).toBe(200);
   });
 
@@ -121,7 +119,7 @@ describe("Comments Tests", () => {
 
   test("Comment Get By Id test fail wrong id", async () => {
     let modifiedId = commentId.slice(0, 1) + "3" + commentId.slice(2);
-    const response = await request(app).get("/comments/"+modifiedId);
+    const response = await request(app).get("/comments/" + modifiedId);
     expect(response.statusCode).toBe(404);
   });
 
@@ -157,8 +155,7 @@ describe("Comments Tests", () => {
   test("Comment Update test fail - id not in format", async () => {
     const response = await request(app)
       .put("/comments/123456")
-      .set
-      ("authorization", "JWT " + userInfo.accessToken)
+      .set("authorization", "JWT " + userInfo.accessToken)
       .send({ comment: "My Second post" });
     expect(response.statusCode).toBe(400);
   });
@@ -167,12 +164,10 @@ describe("Comments Tests", () => {
     let modifiedId = commentId.slice(0, 1) + "3" + commentId.slice(2);
     const response = await request(app)
       .put("/comments/" + modifiedId)
-      .set
-      ("authorization", "JWT " + userInfo.accessToken)
+      .set("authorization", "JWT " + userInfo.accessToken)
       .send({ comment: "My Second post" });
     expect(response.statusCode).toBe(404);
   });
-
 
   test("Comment Delete test", async () => {
     const response = await request(app)

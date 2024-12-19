@@ -1,182 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1734536612876" clover="3.2.0">
-  <project timestamp="1734536612876" name="All files">
-    <metrics statements="265" coveredstatements="183" conditionals="50" coveredconditionals="20" methods="46" coveredmethods="32" elements="361" coveredelements="235" complexity="0" loc="265" ncloc="265" packages="4" files="11" classes="11"/>
+<coverage generated="1734636600824" clover="3.2.0">
+  <project timestamp="1734636600824" name="All files">
+    <metrics statements="265" coveredstatements="261" conditionals="50" coveredconditionals="45" methods="46" coveredmethods="44" elements="361" coveredelements="350" complexity="0" loc="265" ncloc="265" packages="4" files="11" classes="11"/>
     <package name="src">
       <metrics statements="29" coveredstatements="25" conditionals="6" coveredconditionals="1" methods="6" coveredmethods="4"/>
-      <file name="server.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\server.ts">
+      <file name="server.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\server.ts">
         <metrics statements="29" coveredstatements="25" conditionals="6" coveredconditionals="1" methods="6" coveredmethods="4"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="19" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="182" coveredstatements="104" conditionals="44" coveredconditionals="19" methods="30" coveredmethods="18"/>
-      <file name="auth_controller.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\auth_controller.ts">
-        <metrics statements="132" coveredstatements="54" conditionals="36" coveredconditionals="11" methods="19" coveredmethods="7"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="12" count="2" type="cond" truecount="2" falsecount="1"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="40" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="66" count="2" type="cond" truecount="2" falsecount="1"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
-        <line num="71" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="75" count="2" type="stmt"/>
-        <line num="76" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="81" count="2" type="stmt"/>
-        <line num="82" count="2" type="stmt"/>
-        <line num="84" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="85" count="2" type="stmt"/>
-        <line num="86" count="2" type="stmt"/>
-        <line num="87" count="2" type="stmt"/>
-        <line num="96" count="2" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="103" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="108" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="109" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="116" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
-        <line num="121" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="122" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
-        <line num="125" count="0" type="stmt"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="129" count="0" type="stmt"/>
-        <line num="131" count="0" type="stmt"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="139" count="2" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
-        <line num="141" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="142" count="0" type="stmt"/>
-        <line num="143" count="0" type="stmt"/>
-        <line num="146" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="147" count="0" type="stmt"/>
-        <line num="150" count="0" type="stmt"/>
-        <line num="151" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="152" count="0" type="stmt"/>
-        <line num="153" count="0" type="stmt"/>
-        <line num="156" count="0" type="stmt"/>
-        <line num="157" count="0" type="stmt"/>
-        <line num="158" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="159" count="0" type="stmt"/>
-        <line num="160" count="0" type="stmt"/>
-        <line num="163" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="164" count="0" type="stmt"/>
-        <line num="165" count="0" type="stmt"/>
-        <line num="166" count="0" type="stmt"/>
-        <line num="167" count="0" type="stmt"/>
-        <line num="170" count="0" type="stmt"/>
-        <line num="171" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="172" count="0" type="stmt"/>
-        <line num="173" count="0" type="stmt"/>
-        <line num="176" count="0" type="stmt"/>
-        <line num="177" count="0" type="stmt"/>
-        <line num="179" count="0" type="stmt"/>
-        <line num="193" count="2" type="stmt"/>
-        <line num="198" count="20" type="stmt"/>
-        <line num="199" count="20" type="cond" truecount="2" falsecount="0"/>
-        <line num="200" count="20" type="cond" truecount="1" falsecount="0"/>
-        <line num="201" count="2" type="stmt"/>
-        <line num="202" count="2" type="stmt"/>
-        <line num="204" count="18" type="cond" truecount="1" falsecount="0"/>
-        <line num="205" count="18" type="stmt"/>
-        <line num="206" count="18" type="cond" truecount="1" falsecount="0"/>
-        <line num="207" count="2" type="stmt"/>
-        <line num="208" count="2" type="stmt"/>
-        <line num="210" count="16" type="stmt"/>
-        <line num="211" count="16" type="stmt"/>
-        <line num="212" count="16" type="stmt"/>
-        <line num="217" count="2" type="stmt"/>
-        <line num="218" count="0" type="stmt"/>
-        <line num="219" count="0" type="stmt"/>
-        <line num="220" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="221" count="0" type="stmt"/>
-        <line num="222" count="0" type="stmt"/>
-        <line num="224" count="0" type="stmt"/>
-        <line num="225" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="226" count="0" type="stmt"/>
-        <line num="227" count="0" type="stmt"/>
-        <line num="229" count="0" type="stmt"/>
-        <line num="230" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="231" count="0" type="stmt"/>
-        <line num="232" count="0" type="stmt"/>
-        <line num="234" count="0" type="stmt"/>
-        <line num="236" count="0" type="stmt"/>
-        <line num="237" count="0" type="stmt"/>
-        <line num="238" count="0" type="stmt"/>
-        <line num="241" count="2" type="stmt"/>
+      <metrics statements="182" coveredstatements="182" conditionals="44" coveredconditionals="44" methods="30" coveredmethods="30"/>
+      <file name="auth_controller.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\auth_controller.ts">
+        <metrics statements="132" coveredstatements="132" conditionals="36" coveredconditionals="36" methods="19" coveredmethods="19"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="9" count="10" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="12" count="10" type="cond" truecount="3" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="37" count="14" type="stmt"/>
+        <line num="38" count="14" type="stmt"/>
+        <line num="39" count="14" type="stmt"/>
+        <line num="40" count="14" type="cond" truecount="1" falsecount="0"/>
+        <line num="41" count="14" type="stmt"/>
+        <line num="50" count="14" type="stmt"/>
+        <line num="60" count="14" type="stmt"/>
+        <line num="63" count="14" type="stmt"/>
+        <line num="64" count="14" type="stmt"/>
+        <line num="65" count="14" type="stmt"/>
+        <line num="66" count="14" type="cond" truecount="3" falsecount="0"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="70" count="13" type="stmt"/>
+        <line num="71" count="13" type="cond" truecount="1" falsecount="0"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="75" count="12" type="stmt"/>
+        <line num="76" count="12" type="cond" truecount="1" falsecount="0"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="81" count="11" type="stmt"/>
+        <line num="82" count="11" type="stmt"/>
+        <line num="84" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="85" count="11" type="stmt"/>
+        <line num="86" count="11" type="stmt"/>
+        <line num="87" count="11" type="stmt"/>
+        <line num="96" count="5" type="stmt"/>
+        <line num="97" count="5" type="stmt"/>
+        <line num="98" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="103" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="104" count="4" type="stmt"/>
+        <line num="107" count="4" type="stmt"/>
+        <line num="108" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
+        <line num="113" count="3" type="stmt"/>
+        <line num="115" count="3" type="stmt"/>
+        <line num="116" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="121" count="2" type="cond" truecount="3" falsecount="0"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="129" count="2" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="139" count="8" type="stmt"/>
+        <line num="140" count="8" type="stmt"/>
+        <line num="141" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="142" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="146" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="147" count="7" type="stmt"/>
+        <line num="150" count="7" type="stmt"/>
+        <line num="151" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="153" count="1" type="stmt"/>
+        <line num="156" count="6" type="stmt"/>
+        <line num="157" count="6" type="stmt"/>
+        <line num="158" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="159" count="1" type="stmt"/>
+        <line num="160" count="1" type="stmt"/>
+        <line num="163" count="5" type="cond" truecount="3" falsecount="0"/>
+        <line num="164" count="2" type="stmt"/>
+        <line num="165" count="2" type="stmt"/>
+        <line num="166" count="2" type="stmt"/>
+        <line num="167" count="2" type="stmt"/>
+        <line num="170" count="3" type="stmt"/>
+        <line num="171" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="172" count="3" type="stmt"/>
+        <line num="173" count="4" type="stmt"/>
+        <line num="176" count="3" type="stmt"/>
+        <line num="177" count="3" type="stmt"/>
+        <line num="179" count="3" type="stmt"/>
+        <line num="193" count="3" type="stmt"/>
+        <line num="198" count="24" type="stmt"/>
+        <line num="199" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="200" count="24" type="cond" truecount="1" falsecount="0"/>
+        <line num="201" count="3" type="stmt"/>
+        <line num="202" count="3" type="stmt"/>
+        <line num="204" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="205" count="21" type="stmt"/>
+        <line num="206" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="207" count="3" type="stmt"/>
+        <line num="208" count="3" type="stmt"/>
+        <line num="210" count="18" type="stmt"/>
+        <line num="211" count="18" type="stmt"/>
+        <line num="212" count="18" type="stmt"/>
+        <line num="217" count="6" type="stmt"/>
+        <line num="218" count="6" type="stmt"/>
+        <line num="219" count="6" type="stmt"/>
+        <line num="220" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="221" count="1" type="stmt"/>
+        <line num="222" count="1" type="stmt"/>
+        <line num="224" count="5" type="stmt"/>
+        <line num="225" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="226" count="1" type="stmt"/>
+        <line num="227" count="1" type="stmt"/>
+        <line num="229" count="4" type="stmt"/>
+        <line num="230" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="231" count="1" type="stmt"/>
+        <line num="232" count="1" type="stmt"/>
+        <line num="234" count="3" type="stmt"/>
+        <line num="236" count="3" type="stmt"/>
+        <line num="237" count="3" type="stmt"/>
+        <line num="238" count="3" type="stmt"/>
+        <line num="241" count="3" type="stmt"/>
       </file>
-      <file name="base_controller.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\base_controller.ts">
+      <file name="base_controller.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\base_controller.ts">
         <metrics statements="30" coveredstatements="30" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
-        <line num="7" count="4" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
         <line num="11" count="7" type="stmt"/>
         <line num="13" count="7" type="cond" truecount="2" falsecount="0"/>
         <line num="16" count="7" type="cond" truecount="2" falsecount="0"/>
@@ -189,9 +189,9 @@
         <line num="28" count="2" type="stmt"/>
         <line num="30" count="3" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
-        <line num="38" count="6" type="stmt"/>
-        <line num="39" count="6" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
+        <line num="38" count="8" type="stmt"/>
+        <line num="39" count="8" type="stmt"/>
+        <line num="40" count="6" type="stmt"/>
         <line num="42" count="2" type="stmt"/>
         <line num="47" count="6" type="stmt"/>
         <line num="48" count="6" type="stmt"/>
@@ -205,111 +205,111 @@
         <line num="65" count="4" type="stmt"/>
         <line num="66" count="2" type="stmt"/>
         <line num="68" count="2" type="stmt"/>
-        <line num="73" count="2" type="stmt"/>
+        <line num="73" count="3" type="stmt"/>
       </file>
-      <file name="comments_controller.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\comments_controller.ts">
+      <file name="comments_controller.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\comments_controller.ts">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
       </file>
-      <file name="posts_controller.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\posts_controller.ts">
+      <file name="posts_controller.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\controllers\posts_controller.ts">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.models">
       <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="comments_model.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\models\comments_model.ts">
+      <file name="comments_model.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\models\comments_model.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
       </file>
-      <file name="posts_model.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\models\posts_model.ts">
+      <file name="posts_model.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\models\posts_model.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
       </file>
-      <file name="user_model.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\models\user_model.ts">
+      <file name="user_model.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\models\user_model.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.routes">
       <metrics statements="39" coveredstatements="39" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
-      <file name="auth_routes.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\routes\auth_routes.ts">
+      <file name="auth_routes.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\routes\auth_routes.ts">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-      </file>
-      <file name="comments_routes.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\routes\comments_routes.ts">
-        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-      </file>
-      <file name="posts_routes.ts" path="C:\assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\routes\posts_routes.ts">
-        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+      </file>
+      <file name="comments_routes.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\routes\comments_routes.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
         <line num="20" count="3" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+      </file>
+      <file name="posts_routes.ts" path="C:\Users\user\Desktop\Study\Computer Science\Third-year\Advanced-Web-Applications\Assignments\Assignment-2---USER-JWT-SWAGGER-JEST\src\routes\posts_routes.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
       </file>
     </package>
   </project>
