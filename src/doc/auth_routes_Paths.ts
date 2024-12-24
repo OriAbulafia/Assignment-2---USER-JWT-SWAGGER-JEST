@@ -1,9 +1,8 @@
 const userPaths = {
-  "/api/user/register": {
+  "/auth/register": {
     post: {
       summary: "Register a new user",
-      description:
-        "Endpoint to register a new user with an email and password.",
+      description: "Endpoint to register a new user with an email and password.",
       tags: ["Auth"],
       requestBody: {
         required: true,
@@ -85,7 +84,7 @@ const userPaths = {
       },
     },
   },
-  "/api/user/login": {
+  "/auth/login": {
     post: {
       summary: "Login a user",
       description: "Login a user with email and password.",
@@ -150,7 +149,7 @@ const userPaths = {
       },
     },
   },
-  "/api/user/logout": {
+  "/auth/logout": {
     post: {
       summary: "Logout a user",
       description: "Log out a user by invalidating their refresh token.",
@@ -196,7 +195,7 @@ const userPaths = {
       },
     },
   },
-  "/api/user/refresh": {
+  "/auth/refresh": {
     post: {
       summary: "Refresh access token",
       description: "Exchange a valid refresh token for a new access token.",
@@ -220,7 +219,7 @@ const userPaths = {
         },
       },
       responses: {
-        200: {
+        201: {
           description: "Tokens refreshed successfully.",
           content: {
             "application/json": {
@@ -253,7 +252,7 @@ const userPaths = {
       },
     },
   },
-  "/api/user/delete": {
+  "/auth/delete": {
     delete: {
       summary: "Delete a user account",
       description: "Delete a user's account permanently.",
@@ -270,12 +269,12 @@ const userPaths = {
                   type: "string",
                   format: "email",
                   description: "The user's email address.",
-                  example: "testuser@gmail.com",
+                  example: "Sahar@gmail.com",
                 },
                 password: {
                   type: "string",
                   description: "The user's password.",
-                  example: "testpassword",
+                  example: "securepassword123",
                 },
               },
             },
