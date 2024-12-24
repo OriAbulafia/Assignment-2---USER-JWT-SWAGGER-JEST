@@ -50,7 +50,8 @@ const userPaths = {
           },
         },
         400: {
-          description: "Bad request due to invalid input data.",
+          description:
+            "Bad request due to missing input data or email already exists.",
           content: {
             "application/json": {
               schema: {
@@ -58,7 +59,23 @@ const userPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "Email is already in use.",
+                    example: "missing email or password | email already exists",
+                  },
+                },
+              },
+            },
+          },
+        },
+        500: {
+          description: "Internal server error.",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "An unexpected error occurred.",
                   },
                 },
               },
@@ -105,10 +122,10 @@ const userPaths = {
               schema: {
                 type: "object",
                 properties: {
+                  email: { type: "string", example: "Sahar@gmail.com" },
+                  _id: { type: "string", example: "676aa39695b4233508df4147" },
                   accessToken: { type: "string", example: "eyJhbGci..." },
                   refreshToken: { type: "string", example: "eyJhbGci..." },
-                  _id: { type: "string", example: "676aa39695b4233508df4147" },
-                  email: { type: "string", example: "Sahar@gmail.com" },
                 },
               },
             },
@@ -123,7 +140,7 @@ const userPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "Invalid email or password.",
+                    example: "wrong email or password",
                   },
                 },
               },
@@ -167,7 +184,10 @@ const userPaths = {
               schema: {
                 type: "object",
                 properties: {
-                  message: { type: "string", example: "Invalid token." },
+                  message: {
+                    type: "string",
+                    example: "invalid token | missing refresh token",
+                  },
                 },
               },
             },
@@ -215,13 +235,16 @@ const userPaths = {
           },
         },
         400: {
-          description: "Invalid refresh token.",
+          description: "Invalid or missing refresh token.",
           content: {
             "application/json": {
               schema: {
                 type: "object",
                 properties: {
-                  message: { type: "string", example: "Invalid token." },
+                  message: {
+                    type: "string",
+                    example: "invalid token | missing refresh token",
+                  },
                 },
               },
             },
@@ -262,6 +285,19 @@ const userPaths = {
       responses: {
         200: {
           description: "User deleted successfully.",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "User deleted successfully",
+                  },
+                },
+              },
+            },
+          },
         },
         400: {
           description: "Invalid email or password.",
@@ -272,7 +308,8 @@ const userPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "Invalid email or password.",
+                    example:
+                      "wrong email or password | missing email or password",
                   },
                 },
               },
