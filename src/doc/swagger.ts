@@ -1,4 +1,7 @@
 import userPaths from "./auth_routes_Paths";
+import postsPaths from "./posts_routes_Paths";
+import commentsPaths from "./comments_routes_Paths";
+import Components from "./components";
 
 const options = {
   openapi: "3.1.0",
@@ -17,7 +20,22 @@ const options = {
       url: `http://localhost:3001`,
     },
   ],
-  paths: { ...userPaths },
+  tags: [
+    {
+      name: "Auth",
+      description: "Operations about user",
+    },
+    {
+      name: "Posts",
+      description: "Operations about posts",
+    },
+    {
+      name: "Comments",
+      description: "Operations about comments",
+    },
+  ],
+  paths: { ...userPaths, ...postsPaths, ...commentsPaths },
+  components: Components,
 };
 
 export default options;

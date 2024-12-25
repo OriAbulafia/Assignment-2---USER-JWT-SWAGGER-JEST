@@ -1,9 +1,8 @@
 const userPaths = {
-  "/api/user/register": {
+  "/auth/register": {
     post: {
       summary: "Register a new user",
-      description:
-        "Endpoint to register a new user with an email and password.",
+      description: "Endpoint to register a new user with an email and password.",
       tags: ["Auth"],
       requestBody: {
         required: true,
@@ -38,12 +37,17 @@ const userPaths = {
                 type: "object",
                 properties: {
                   email: { type: "string", example: "Sahar@gmail.com" },
-                  _id: { type: "string", example: "676aa39695b4233508df4147" },
                   password: {
                     type: "string",
                     description: "Hashed password",
                     example: "$2b$10$hash...",
                   },
+                  refreshTokens: {
+                    type: "array",
+                    items: { type: "string" },
+                    example: ["eyJhbGci...", "eyJhbGci..."],
+                  },
+                  _id: { type: "string", example: "676aa39695b4233508df4147" },
                 },
               },
             },
@@ -85,7 +89,7 @@ const userPaths = {
       },
     },
   },
-  "/api/user/login": {
+  "/auth/login": {
     post: {
       summary: "Login a user",
       description: "Login a user with email and password.",
@@ -140,7 +144,7 @@ const userPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "wrong email or password",
+                    example: "email or password is wrong",
                   },
                 },
               },
@@ -150,7 +154,7 @@ const userPaths = {
       },
     },
   },
-  "/api/user/logout": {
+  "/auth/logout": {
     post: {
       summary: "Logout a user",
       description: "Log out a user by invalidating their refresh token.",
@@ -193,10 +197,26 @@ const userPaths = {
             },
           },
         },
+        403: {
+          description: "Invalid refresh token.",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "invalid token",
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
-  "/api/user/refresh": {
+  "/auth/refresh": {
     post: {
       summary: "Refresh access token",
       description: "Exchange a valid refresh token for a new access token.",
@@ -250,10 +270,26 @@ const userPaths = {
             },
           },
         },
+        403: {
+          description: "Invalid refresh token.",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "invalid token",
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
-  "/api/user/delete": {
+  "/auth/delete": {
     delete: {
       summary: "Delete a user account",
       description: "Delete a user's account permanently.",
@@ -270,12 +306,12 @@ const userPaths = {
                   type: "string",
                   format: "email",
                   description: "The user's email address.",
-                  example: "testuser@gmail.com",
+                  example: "Sahar@gmail.com",
                 },
                 password: {
                   type: "string",
                   description: "The user's password.",
-                  example: "testpassword",
+                  example: "securepassword123",
                 },
               },
             },
