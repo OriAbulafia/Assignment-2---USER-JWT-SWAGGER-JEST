@@ -1,9 +1,9 @@
-const postsPaths = {
-  "/posts": {
+const commentsPaths = {
+  "/comments": {
     post: {
-      summary: "Create a new post",
-      description: "Create a new post with the user's ID as the owner.",
-      tags: ["Posts"],
+      summary: "Create a new comment",
+      description: "Creating a new comment.",
+      tags: ["Comments"],
       security: [
         {
           bearerAuth: [],
@@ -15,17 +15,17 @@ const postsPaths = {
           "application/json": {
             schema: {
               type: "object",
-              required: ["title", "content"],
+              required: ["comment", "postId"],
               properties: {
-                title: {
+                comment: {
                   type: "string",
-                  description: "The post's title.",
-                  example: "My first post",
+                  description: "The comment content.",
+                  example: "This is my first comment.",
                 },
-                content: {
+                postId: {
                   type: "string",
-                  description: "The post's content.",
-                  example: "This is my first post.",
+                  description: "The post id.",
+                  example: "60f3b4a2c4f5c50015e4f8a8",
                 },
               },
             },
@@ -44,13 +44,13 @@ const postsPaths = {
                     type: "string",
                     example: "60f3b4a2c4f5c50015e4f8a8",
                   },
-                  title: {
+                  comment: {
                     type: "string",
-                    example: "My first post",
+                    example: "This is my first comment.",
                   },
-                  content: {
+                  postId: {
                     type: "string",
-                    example: "This is my first post.",
+                    example: "60f3b4a2c4f5c50015e4f8a8",
                   },
                   owner: {
                     type: "string",
@@ -80,9 +80,10 @@ const postsPaths = {
       },
     },
     get: {
-      summary: "Get all posts and filter",
-      description: "Get all posts and filter by owner or title.",
-      tags: ["Posts"],
+      summary: "Get all comments and filter",
+      description:
+        "Get all comments and filter the comments by owner or postId.",
+      tags: ["Comments"],
       responses: {
         200: {
           description: "Successful request.",
@@ -97,13 +98,13 @@ const postsPaths = {
                       type: "string",
                       example: "60f3b4a2c4f5c50015e4f8a8",
                     },
-                    title: {
+                    comment: {
                       type: "string",
-                      example: "My first post",
+                      example: "This is my first comment.",
                     },
-                    content: {
+                    postId: {
                       type: "string",
-                      example: "This is my first post.",
+                      example: "60f3b4a2c4f5c50015e4f8a8",
                     },
                     owner: {
                       type: "string",
@@ -116,7 +117,7 @@ const postsPaths = {
           },
         },
         404: {
-          description: "No post found.",
+          description: "No comments found.",
           content: {
             "application/json": {
               schema: {
@@ -124,7 +125,7 @@ const postsPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "no post found",
+                    example: "no comments found",
                   },
                 },
               },
@@ -134,17 +135,17 @@ const postsPaths = {
       },
     },
   },
-  "/posts/{id}": {
+  "/comments/{id}": {
     get: {
-      summary: "Get post by ID",
-      description: "Get a post by its ID.",
-      tags: ["Posts"],
+      summary: "Get comment by id",
+      description: "Get comment by id.",
+      tags: ["Comments"],
       parameters: [
         {
           in: "path",
           name: "id",
           required: true,
-          description: "The post's ID.",
+          description: "The comment id.",
           schema: {
             type: "string",
             example: "60f3b4a2c4f5c50015e4f8a8",
@@ -165,13 +166,13 @@ const postsPaths = {
                       type: "string",
                       example: "60f3b4a2c4f5c50015e4f8a8",
                     },
-                    title: {
+                    comment: {
                       type: "string",
-                      example: "My first post",
+                      example: "This is my first comment.",
                     },
-                    content: {
+                    postId: {
                       type: "string",
-                      example: "This is my first post.",
+                      example: "60f3b4a2c4f5c50015e4f8a8",
                     },
                     owner: {
                       type: "string",
@@ -184,7 +185,7 @@ const postsPaths = {
           },
         },
         404: {
-          description: "No post found.",
+          description: "Comment not found.",
           content: {
             "application/json": {
               schema: {
@@ -192,24 +193,24 @@ const postsPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "no post found",
+                    example: "comment not found",
                   },
                 },
               },
             },
           },
         },
-        500: {
-          description: "Internal server error.",
-          content: {
-            "application/json": {
-              schema: {
-                type: "object",
-                properties: {
-                  message: {
-                    type: "string",
-                    example: "internal server error",
-                  },
+      },
+      400: {
+        description: "internal server error",
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              properties: {
+                message: {
+                  type: "string",
+                  example: "internal server error",
                 },
               },
             },
@@ -218,9 +219,9 @@ const postsPaths = {
       },
     },
     put: {
-      summary: "Update a post",
-      description: "Update a post by its ID.",
-      tags: ["Posts"],
+      summary: "Update comment by id",
+      description: "Update comment by id.",
+      tags: ["Comments"],
       security: [
         {
           bearerAuth: [],
@@ -231,7 +232,7 @@ const postsPaths = {
           in: "path",
           name: "id",
           required: true,
-          description: "The post's ID.",
+          description: "The comment id.",
           schema: {
             type: "string",
             example: "60f3b4a2c4f5c50015e4f8a8",
@@ -245,15 +246,10 @@ const postsPaths = {
             schema: {
               type: "object",
               properties: {
-                title: {
+                comment: {
                   type: "string",
-                  description: "The post's title.",
-                  example: "The updated title.",
-                },
-                content: {
-                  type: "string",
-                  description: "The post's content.",
-                  example: "The updated content.",
+                  description: "The comment content.",
+                  example: "Updated comment.",
                 },
               },
             },
@@ -262,7 +258,7 @@ const postsPaths = {
       },
       responses: {
         200: {
-          description: "Post updated successfully.",
+          description: "Comment updated successfully.",
           content: {
             "application/json": {
               schema: {
@@ -272,13 +268,13 @@ const postsPaths = {
                     type: "string",
                     example: "60f3b4a2c4f5c50015e4f8a8",
                   },
-                  title: {
+                  comment: {
                     type: "string",
-                    example: "The updated title.",
+                    example: "Updated comment.",
                   },
-                  content: {
+                  postId: {
                     type: "string",
-                    example: "The updated content.",
+                    example: "60f3b4a2c4f5c50015e4f8a8",
                   },
                   owner: {
                     type: "string",
@@ -290,7 +286,7 @@ const postsPaths = {
           },
         },
         404: {
-          description: "No post found.",
+          description: "Comment not found.",
           content: {
             "application/json": {
               schema: {
@@ -298,7 +294,7 @@ const postsPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "no post found",
+                    example: "comment not found",
                   },
                 },
               },
@@ -324,9 +320,9 @@ const postsPaths = {
       },
     },
     delete: {
-      summary: "Delete a post",
-      description: "Delete a post by its ID.",
-      tags: ["Posts"],
+      summary: "Delete comment by id",
+      description: "Delete comment by id.",
+      tags: ["Comments"],
       security: [
         {
           bearerAuth: [],
@@ -337,7 +333,7 @@ const postsPaths = {
           in: "path",
           name: "id",
           required: true,
-          description: "The post's ID.",
+          description: "The comment id.",
           schema: {
             type: "string",
             example: "60f3b4a2c4f5c50015e4f8a8",
@@ -346,7 +342,7 @@ const postsPaths = {
       ],
       responses: {
         200: {
-          description: "Post deleted successfully.",
+          description: "Comment deleted successfully.",
           content: {
             "application/json": {
               schema: {
@@ -362,7 +358,7 @@ const postsPaths = {
           },
         },
         400: {
-          description: "internal server error",
+          description: "Comment not found.",
           content: {
             "application/json": {
               schema: {
@@ -370,7 +366,7 @@ const postsPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "internal server error",
+                    example: "comment not found",
                   },
                 },
               },
@@ -382,4 +378,4 @@ const postsPaths = {
   },
 };
 
-export default postsPaths;
+export default commentsPaths;

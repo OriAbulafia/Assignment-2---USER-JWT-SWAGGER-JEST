@@ -37,12 +37,17 @@ const userPaths = {
                 type: "object",
                 properties: {
                   email: { type: "string", example: "Sahar@gmail.com" },
-                  _id: { type: "string", example: "676aa39695b4233508df4147" },
                   password: {
                     type: "string",
                     description: "Hashed password",
                     example: "$2b$10$hash...",
                   },
+                  refreshTokens: {
+                    type: "array",
+                    items: { type: "string" },
+                    example: ["eyJhbGci...", "eyJhbGci..."],
+                  },
+                  _id: { type: "string", example: "676aa39695b4233508df4147" },
                 },
               },
             },
@@ -139,7 +144,7 @@ const userPaths = {
                 properties: {
                   message: {
                     type: "string",
-                    example: "wrong email or password",
+                    example: "email or password is wrong",
                   },
                 },
               },
@@ -192,6 +197,22 @@ const userPaths = {
             },
           },
         },
+        403: {
+          description: "Invalid refresh token.",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "invalid token",
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
@@ -219,7 +240,7 @@ const userPaths = {
         },
       },
       responses: {
-        201: {
+        200: {
           description: "Tokens refreshed successfully.",
           content: {
             "application/json": {
@@ -243,6 +264,22 @@ const userPaths = {
                   message: {
                     type: "string",
                     example: "invalid token | missing refresh token",
+                  },
+                },
+              },
+            },
+          },
+        },
+        403: {
+          description: "Invalid refresh token.",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "invalid token",
                   },
                 },
               },
