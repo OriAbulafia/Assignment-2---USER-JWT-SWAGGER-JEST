@@ -214,6 +214,32 @@ export const authMiddleware = (
   }
 };
 
+const updateUser = async (req: Request, res: Response) => {
+  const userId = req.query.userId;
+  const email = req.body.email;
+  const password = req.body.password;
+  const user = await userModel.findOne({ _id: userId });
+  if (!user) {
+    res.status(400).send("user not found");
+    return;
+  }
+  if (email) {
+    const userExists = await userModel.findOne({ email: email });
+    if (userExists) {
+      res.status(401).send("email already exists");
+      return;
+    }
+    user.email = email;
+  }
+  if (password) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    user.password = hashedPassword;
+  }
+  await user.save();
+  res.status(200).send("user updated");
+};
+
 const deleteUser = async (req: Request, res: Response) => {
   const userEmail = req.body.email;
   const password = req.body.password;
@@ -231,11 +257,11 @@ const deleteUser = async (req: Request, res: Response) => {
     res.status(400).send("wrong email or password");
     return;
   }
-  await commentModel.deleteMany({ owner: user._id });
 
+  await commentModel.deleteMany({ owner: user._id });
   await Posts.deleteMany({ owner: user._id });
   await userModel.deleteOne({ _id: user._id });
   res.status(200).send("user deleted");
 };
 
-export default { register, login, logout, refresh, deleteUser };
+export default { register, login, logout, refresh, updateUser, deleteUser };

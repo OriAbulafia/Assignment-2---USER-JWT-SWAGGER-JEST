@@ -2,8 +2,9 @@ const userPaths = {
   "/auth/register": {
     post: {
       summary: "Register a new user",
-      description: "Endpoint to register a new user with an email and password.",
-      tags: ["Auth"],
+      description:
+        "Endpoint to register a new user with an email and password.",
+      tags: ["Users"],
       requestBody: {
         required: true,
         content: {
@@ -93,7 +94,7 @@ const userPaths = {
     post: {
       summary: "Login a user",
       description: "Login a user with email and password.",
-      tags: ["Auth"],
+      tags: ["Users"],
       requestBody: {
         required: true,
         content: {
@@ -158,7 +159,7 @@ const userPaths = {
     post: {
       summary: "Logout a user",
       description: "Log out a user by invalidating their refresh token.",
-      tags: ["Auth"],
+      tags: ["Users"],
       requestBody: {
         required: true,
         content: {
@@ -220,7 +221,7 @@ const userPaths = {
     post: {
       summary: "Refresh access token",
       description: "Exchange a valid refresh token for a new access token.",
-      tags: ["Auth"],
+      tags: ["Users"],
       requestBody: {
         required: true,
         content: {
@@ -289,11 +290,101 @@ const userPaths = {
       },
     },
   },
+  "/auth/update": {
+    put: {
+      summary: "Update a user account",
+      description: "Update a user's email or password.",
+      tags: ["Users"],
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
+      requestBody: {
+        required: true,
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              properties: {
+                email: {
+                  type: "string",
+                  format: "email",
+                  description: "The user's new email address.",
+                  example: "emailtest.com",
+                },
+                password: {
+                  type: "string",
+                  description: "The user's new password.",
+                  example: "secure123",
+                },
+              },
+            },
+          },
+        },
+      },
+      responses: {
+        200: {
+          description: "User updated successfully.",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "User updated successfully",
+                  },
+                },
+              },
+            },
+          },
+        },
+        401: {
+          description: "email already exists",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "email already exists",
+                  },
+                },
+              },
+            },
+          },
+        },
+        400: {
+          description: "User not found",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  message: {
+                    type: "string",
+                    example: "User not found",
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   "/auth/delete": {
     delete: {
       summary: "Delete a user account",
       description: "Delete a user's account permanently.",
-      tags: ["Auth"],
+      tags: ["Users"],
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
       requestBody: {
         required: true,
         content: {
