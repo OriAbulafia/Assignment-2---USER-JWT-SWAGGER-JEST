@@ -22,7 +22,7 @@ const options = {
   ],
   tags: [
     {
-      name: "Auth",
+      name: "Users",
       description: "Operations about user",
     },
     {

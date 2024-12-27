@@ -183,10 +183,13 @@ describe("Auth Tests", () => {
     const { refreshToken, accessToken } = login.body;
     userInfo2.refreshToken = refreshToken;
 
-    await request(app).delete("/auth/delete").send({
-      email: userInfo2.email,
-      password: userInfo2.password,
-    });
+    await request(app)
+      .delete("/auth/delete")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        email: userInfo2.email,
+        password: userInfo2.password,
+      });
 
     const response = await request(app).post("/auth/logout").send({
       refreshToken: userInfo2.refreshToken,
@@ -204,10 +207,13 @@ describe("Auth Tests", () => {
     const { refreshToken, accessToken } = login.body;
     userInfo2.refreshToken = refreshToken;
 
-    await request(app).delete("/auth/delete").send({
-      email: userInfo2.email,
-      password: userInfo2.password,
-    });
+    await request(app)
+      .delete("/auth/delete")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        email: userInfo2.email,
+        password: userInfo2.password,
+      });
 
     const response = await request(app).post("/auth/refresh").send({
       refreshToken: userInfo2.refreshToken,
@@ -273,21 +279,111 @@ describe("Auth Tests", () => {
     expect(response4.statusCode).toBe(201);
   });
 
+  test("Update user - Success", async () => {
+    const testUser = {
+      email: "testemail@gmail.com",
+      password: "testpassword",
+    };
+    let accessToken;
+
+    await request(app).post("/auth/register").send(testUser);
+    const res = await request(app).post("/auth/login").send({
+      email: testUser.email,
+      password: testUser.password,
+    });
+    accessToken = res.body.accessToken;
+
+    const response = await request(app)
+      .put("/auth/update")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        email: "blabla@gmail.com",
+        password: "blabla",
+      });
+    expect(response.statusCode).toBe(200);
+
+    const response2 = await request(app)
+      .put("/auth/update")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        email: "ori@gmail.com",
+      });
+    expect(response2.statusCode).toBe(200);
+
+    const response3 = await request(app)
+      .put("/auth/update")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        password: "123345",
+      });
+    expect(response3.statusCode).toBe(200);
+  });
+
+  test("Update user - fail email already exist", async () => {
+    await request(app).post("/auth/register").send(userInfo2);
+    await request(app).post("/auth/register").send(userInfo);
+    const res = await request(app).post("/auth/login").send({
+      email: userInfo.email,
+      password: userInfo.password,
+    });
+    const accessToken2 = res.body.accessToken;
+    const response = await request(app)
+      .put("/auth/update")
+      .set("authorization", "JWT " + accessToken2)
+      .send({
+        email: userInfo2.email,
+      });
+    expect(response.statusCode).toBe(401);
+  });
+
+  test("Update user - user doesn't exist trying ro update after delete", async () => {
+    const testUser = {
+      email: "testemail",
+      password: "testpassword",
+    };
+    let accessToken;
+    await request(app).post("/auth/register").send(testUser);
+    const res = await request(app).post("/auth/login").send({
+      email: testUser.email,
+      password: testUser.password,
+    });
+    accessToken = res.body.accessToken;
+    await request(app)
+      .delete("/auth/delete")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        email: testUser.email,
+        password: testUser.password,
+      });
+    const response = await request(app)
+      .put("/auth/update")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        email: "123@gmail.com",
+      });
+    expect(response.statusCode).toBe(400);
+  });
+
   test("Delete user - Success", async () => {
     const testUser = {
       email: "testuser@gmail.com",
       password: "testpassword",
     };
+    let accessToken;
 
-    await request(app).post("/auth/register").send(testUser);
-    await request(app).post("/auth/login").send({
+    const res = await request(app).post("/auth/register").send(testUser);
+    const res2 = await request(app).post("/auth/login").send({
       email: testUser.email,
       password: testUser.password,
     });
-    const response3 = await request(app).delete("/auth/delete").send({
-      email: testUser.email,
-      password: testUser.password,
-    });
+    accessToken = res2.body.accessToken;
+    const response3 = await request(app)
+      .delete("/auth/delete")
+      .set("authorization", "JWT " + accessToken)
+      .send({
+        email: testUser.email,
+        password: testUser.password,
+      });
 
     expect(response3.statusCode).toBe(200);
   });
@@ -298,10 +394,13 @@ describe("Auth Tests", () => {
       password: "",
     };
 
-    const response = await request(app).delete("/auth/delete").send({
-      email: testUser.email,
-      password: testUser.password,
-    });
+    const response = await request(app)
+      .delete("/auth/delete")
+      .set("authorization", "JWT " + userInfo.accessToken)
+      .send({
+        email: testUser.email,
+        password: testUser.password,
+      });
 
     expect(response.statusCode).toBe(400);
   });
@@ -311,15 +410,18 @@ describe("Auth Tests", () => {
       email: "testuser@gmail.com",
       password: "testpassword",
     };
+    let accessToken;
 
-    await request(app).post("/auth/register").send(testUser);
-    await request(app).post("/auth/login").send({
+    const res = await request(app).post("/auth/register").send(testUser);
+    const res2 = await request(app).post("/auth/login").send({
       email: testUser.email,
       password: testUser.password,
     });
+    accessToken = res2.body.accessToken;
 
     const response3 = await request(app)
       .delete("/auth/delete")
+      .set("authorization", "JWT " + accessToken)
       .send({
         email: testUser.email + "something",
         password: testUser.password,
@@ -333,15 +435,18 @@ describe("Auth Tests", () => {
       email: "testuser@gmail.com",
       password: "testpassword",
     };
+    let accessToken;
 
-    await request(app).post("/auth/register").send(testUser);
-    await request(app).post("/auth/login").send({
+    const res = await request(app).post("/auth/register").send(testUser);
+    const res2 = await request(app).post("/auth/login").send({
       email: testUser.email,
       password: testUser.password,
     });
+    accessToken = res2.body.accessToken;
 
     const response3 = await request(app)
       .delete("/auth/delete")
+      .set("authorization", "JWT " + accessToken)
       .send({
         email: testUser.email,
         password: testUser.password + "something",
